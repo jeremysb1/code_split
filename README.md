@@ -8,6 +8,6 @@ This is done to reduce complexity. Meaning, as apps become more complex and the 
 
 Developers also don't want browsers to have to load large files which can slow down an app's performance. 
 
-Instead, enourmous files can be split into smaller ones which reduce the work the browser has to perform at any given time. 
+Instead, enourmous files can be split into smaller ones and are uploaded on demand which reduce the work the browser has to perform at any given time. 
 
 The browser can load the features it needs at loading time and delay the loading of additional features until needed based on a user's activity; this is called [lazy loading](https://developer.mozilla.org/en-US/docs/Glossary/Lazy_load).
