@@ -1,7 +1,10 @@
-import React, { Component } from 'react';
+import React, { Component, Suspense } from 'react';
 import './App.css';
 import Page1 from './components/page1';
-import AsyncComponent from './components/AsyncComponent';
+
+
+const Page2Lazy = React.lazy(() => import('./components/page2'));
+const Page3Lazy = React.lazy(() => import('./components/page3'));
 
 class App extends Component {
   constructor() {
@@ -20,11 +23,17 @@ class App extends Component {
     if (this.state.route === 'page1') {
       return <Page1 onRouteChange={this.onRouteChange}/>
     } else if (this.state.route === 'page2') {
-      const AsyncPage2 = AsyncComponent(() => import('./components/page2'))
-      return <AsyncPage2 onRouteChange={this.onRouteChange}/>
-    } else if (this.state.rounte === 'page3') {
-      const AsyncPage3 = AsyncComponent(() => import('./components/page3'))
-      return <AsyncPage3 onRouteChange={this.onRouteChange}/>
+      return (
+        <Suspense fallback={<div>...loading</div>}>
+          <Page2Lazy onRouteChange={this.onRouteChange}/>
+        </Suspense>
+      );
+    } else if (this.state.route === 'page3') {
+      return (
+        <Suspense fallback={<div>...loading</div>}>
+          <Page3Lazy onRouteChange={this.onRouteChange}/>
+        </Suspense>
+      );
     }
   }
 }
