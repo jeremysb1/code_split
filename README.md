@@ -6,7 +6,7 @@ Code splitting according to the MDN Web Docs is a way of organizing code into va
 
 This is done to reduce complexity. Meaning, as apps become more complex and the code base grows, developers need to be able organize and maintain code in a way that enhances the performance of their application(s) over time. 
 
-Developers also don't want browsers to have to load enourmous files which can slow down an app's performance. 
+Developers also don't want browsers to have to load large files which can slow down an app's performance. 
 
 Instead, enourmous files can be split into smaller ones which reduce the work the browser has to perform at any given time. 
 
